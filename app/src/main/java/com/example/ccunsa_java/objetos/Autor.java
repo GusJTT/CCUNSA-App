@@ -9,7 +9,7 @@ public class Autor {
     @PrimaryKey
     private int id;
 
-    Pintura de luz, larga exposición, apilado
+    @ColumnInfo(name = "url_imagen")
     private String urlImagen;
 
     @ColumnInfo(name = "nombres")

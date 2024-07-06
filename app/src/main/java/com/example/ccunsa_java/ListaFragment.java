@@ -13,25 +13,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.ccunsa_java.adaptadores.AdaptadorCuadro;
-import com.example.ccunsa_java.adaptadores.Cuadro;
-import com.example.ccunsa_java.adaptadores.OnCuadroClickListener;
-import com.example.ccunsa_java.modelos.CuadrosViewModel;
+import com.example.ccunsa_java.adaptadores.AdaptadorObras;
+import com.example.ccunsa_java.adaptadores.OnObraClickListener;
+import com.example.ccunsa_java.modelos.ObrasViewModel;
+import com.example.ccunsa_java.objetos.ObraDeArte;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ListaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListaFragment extends Fragment implements OnCuadroClickListener {
+public class ListaFragment extends Fragment implements OnObraClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private RecyclerView recyclerListaCuadros;
-    private AdaptadorCuadro adaptadorCuadro;
-    private CuadrosViewModel cuadrosModel;
+    private RecyclerView recyclerListaObras;
+    private AdaptadorObras adaptadorObras;
+    private ObrasViewModel obrasModel;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -72,18 +72,18 @@ public class ListaFragment extends Fragment implements OnCuadroClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
-        cuadrosModel = new ViewModelProvider(requireActivity()).get(CuadrosViewModel.class);
-        recyclerListaCuadros = view.findViewById(R.id.recyclerListaCuadros);
-        recyclerListaCuadros.setLayoutManager(new LinearLayoutManager(getContext()));
+        obrasModel = new ViewModelProvider(requireActivity()).get(ObrasViewModel.class);
+        recyclerListaObras = view.findViewById(R.id.recyclerListaObras);
+        recyclerListaObras.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adaptadorCuadro = new AdaptadorCuadro(cuadrosModel.getCuadrosLiveData().getValue(),getContext(),this);
-        recyclerListaCuadros.setAdapter(adaptadorCuadro);
+        adaptadorObras = new AdaptadorObras(obrasModel.getObrasLiveData().getValue(),getContext(),this);
+        recyclerListaObras.setAdapter(adaptadorObras);
         Log.d("AdaptadorCuadro", "Adaptador configurado y asignado al RecyclerView.");
         return view;
     }
     @Override
-    public void onCuadroClick(Cuadro cuadro) {
-        cuadrosModel.setCuadroSeleccionado(cuadro);
+    public void onObraClick(ObraDeArte obra) {
+        obrasModel.setObraSeleccionada(obra);
         //Cargar fragment detalle
         FragmentManager fragmentManager = getParentFragmentManager();
         fragmentManager.beginTransaction()

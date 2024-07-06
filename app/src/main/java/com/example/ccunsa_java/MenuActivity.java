@@ -1,7 +1,6 @@
 package com.example.ccunsa_java;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,10 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.ccunsa_java.adaptadores.Cuadro;
-import com.example.ccunsa_java.modelos.CuadrosViewModel;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.ccunsa_java.modelos.ObrasViewModel;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -26,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        CuadrosViewModel cuadrosModel = new ViewModelProvider(this).get(CuadrosViewModel.class);
+        ObrasViewModel cuadrosModel = new ViewModelProvider(this).get(ObrasViewModel.class);
     }
 
 

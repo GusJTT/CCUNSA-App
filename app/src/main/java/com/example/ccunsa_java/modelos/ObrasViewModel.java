@@ -10,35 +10,35 @@ import com.example.ccunsa_java.objetos.ObraDeArte;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CuadrosViewModel extends ViewModel {
-    private MutableLiveData<List<ObraDeArte>> cuadrosLiveData;
-    private MutableLiveData<ObraDeArte> cuadroSeleccionado;
-    private List<ObraDeArte> listaObrasDeArte;
+public class ObrasViewModel extends ViewModel {
+    private MutableLiveData<List<ObraDeArte>> obrasLiveData;
+    private MutableLiveData<ObraDeArte> obraSeleccionada;
+    private List<ObraDeArte> listaObras;
 
-    public CuadrosViewModel() {
-        cuadrosLiveData = new MutableLiveData<>();
-        cuadroSeleccionado = new MutableLiveData<>();
-        loadCuadros();
+    public ObrasViewModel() {
+        obrasLiveData = new MutableLiveData<>();
+        obraSeleccionada = new MutableLiveData<>();
+        loadObras();
     }
-    public LiveData<List<ObraDeArte>> getCuadrosLiveData() {
-        return cuadrosLiveData;
-    }
-
-    public LiveData<ObraDeArte> getCuadroSeleccionado() {
-        return cuadroSeleccionado;
+    public LiveData<List<ObraDeArte>> getObrasLiveData() {
+        return obrasLiveData;
     }
 
-    public void setCuadroSeleccionado(ObraDeArte obraDeArte) {
-        cuadroSeleccionado.setValue(obraDeArte);
+    public LiveData<ObraDeArte> getObraSeleccionada() {
+        return obraSeleccionada;
     }
 
-    public void setCuadroSeleccionadoPorId(int id) {
-        ObraDeArte obraDeArte = getCuadroPorId(id);
-        cuadroSeleccionado.setValue(obraDeArte);
+    public void setObraSeleccionada(ObraDeArte obraDeArte) {
+        obraSeleccionada.setValue(obraDeArte);
     }
-    private ObraDeArte getCuadroPorId(int id) {
-        if (listaObrasDeArte != null) {
-            for (ObraDeArte obraDeArte : listaObrasDeArte) {
+
+    public void setObraSeleccionadaPorId(int id) {
+        ObraDeArte obraDeArte = getObraPorId(id);
+        obraSeleccionada.setValue(obraDeArte);
+    }
+    private ObraDeArte getObraPorId(int id) {
+        if (listaObras != null) {
+            for (ObraDeArte obraDeArte : listaObras) {
                 if (obraDeArte.getId() == id) {
                     return obraDeArte;
                 }
@@ -46,10 +46,10 @@ public class CuadrosViewModel extends ViewModel {
         }
         return null;
     }
-    private void loadCuadros() {
-        listaObrasDeArte = new ArrayList<>();
+    private void loadObras() {
+        listaObras = new ArrayList<>();
 
-        listaObrasDeArte.add(new ObraDeArte(
+        listaObras.add(new ObraDeArte(
                 1,
                 "https://ccunsa.org.pe/wp-content/uploads/2024/04/89.jpg",
                 "LA YAKANA EN ANTAKARI",
@@ -61,7 +61,7 @@ public class CuadrosViewModel extends ViewModel {
                 "Pintura de luz, larga exposición, apilado",
                 "DIMENSIONES: 50 x 30 cm.\n"
         ));
-        listaObrasDeArte.add(new ObraDeArte(
+        listaObras.add(new ObraDeArte(
                 2,
                 "https://ccunsa.org.pe/wp-content/uploads/2024/04/85.jpg",
                 "SOGAY",
@@ -73,7 +73,7 @@ public class CuadrosViewModel extends ViewModel {
                 "Larga exposiciòn",
                 "DIMENSIONES:  30 x 45 cm.\n"
         ));
-        listaObrasDeArte.add(new ObraDeArte(
+        listaObras.add(new ObraDeArte(
                 2,
                 "https://ccunsa.org.pe/wp-content/uploads/2024/04/85.jpg",
                 "POCSI",
@@ -86,9 +86,9 @@ public class CuadrosViewModel extends ViewModel {
                 "DIMENSIONES: 30 x 45 cm.\n"
         ));
 
-        Log.d("SharedViewModel", "Lista de cuadros inicializada con " + listaObrasDeArte.size() + " elementos.");
+        Log.d("SharedViewModel", "Lista de cuadros inicializada con " + listaObras.size() + " elementos.");
 
-        cuadrosLiveData.setValue(listaObrasDeArte);
+        obrasLiveData.setValue(listaObras);
     }
 }
 

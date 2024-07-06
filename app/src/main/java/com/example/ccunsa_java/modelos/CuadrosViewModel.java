@@ -1,87 +1,94 @@
 package com.example.ccunsa_java.modelos;
 
-import android.app.Application;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.example.ccunsa_java.adaptadores.Cuadro;
+import com.example.ccunsa_java.objetos.ObraDeArte;
 
-import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CuadrosViewModel extends ViewModel {
-    private MutableLiveData<List<Cuadro>> cuadrosLiveData;
-    private MutableLiveData<Cuadro> cuadroSeleccionado;
-    private List<Cuadro> listaCuadros;
+    private MutableLiveData<List<ObraDeArte>> cuadrosLiveData;
+    private MutableLiveData<ObraDeArte> cuadroSeleccionado;
+    private List<ObraDeArte> listaObrasDeArte;
 
     public CuadrosViewModel() {
         cuadrosLiveData = new MutableLiveData<>();
         cuadroSeleccionado = new MutableLiveData<>();
         loadCuadros();
     }
-    public LiveData<List<Cuadro>> getCuadrosLiveData() {
+    public LiveData<List<ObraDeArte>> getCuadrosLiveData() {
         return cuadrosLiveData;
     }
 
-    public LiveData<Cuadro> getCuadroSeleccionado() {
+    public LiveData<ObraDeArte> getCuadroSeleccionado() {
         return cuadroSeleccionado;
     }
 
-    public void setCuadroSeleccionado(Cuadro cuadro) {
-        cuadroSeleccionado.setValue(cuadro);
+    public void setCuadroSeleccionado(ObraDeArte obraDeArte) {
+        cuadroSeleccionado.setValue(obraDeArte);
     }
 
     public void setCuadroSeleccionadoPorId(int id) {
-        Cuadro cuadro = getCuadroPorId(id);
-        cuadroSeleccionado.setValue(cuadro);
+        ObraDeArte obraDeArte = getCuadroPorId(id);
+        cuadroSeleccionado.setValue(obraDeArte);
     }
-    private Cuadro getCuadroPorId(int id) {
-        if (listaCuadros != null) {
-            for (Cuadro cuadro : listaCuadros) {
-                if (cuadro.getId() == id) {
-                    return cuadro;
+    private ObraDeArte getCuadroPorId(int id) {
+        if (listaObrasDeArte != null) {
+            for (ObraDeArte obraDeArte : listaObrasDeArte) {
+                if (obraDeArte.getId() == id) {
+                    return obraDeArte;
                 }
             }
         }
         return null;
     }
     private void loadCuadros() {
-        listaCuadros = new ArrayList<>();
+        listaObrasDeArte = new ArrayList<>();
 
-        listaCuadros.add(new Cuadro(
+        listaObrasDeArte.add(new ObraDeArte(
                 1,
-                "LA YAKANA EN ANTAKARI",
-                "DIMENSIONES: 50 x 30 cm.\n" +
-                        "TÉCNICA: Pintura de luz, larga exposición, apilado\n" +
-                        "AÑO: 2024",
                 "https://ccunsa.org.pe/wp-content/uploads/2024/04/89.jpg",
-                "expo"
+                "LA YAKANA EN ANTAKARI",
+                1,
+                1,
+                1,
+                "2024-05-12",
+                "Fotografia",
+                "Pintura de luz, larga exposición, apilado",
+                "DIMENSIONES: 50 x 30 cm.\n"
         ));
-        listaCuadros.add(new Cuadro(
+        listaObrasDeArte.add(new ObraDeArte(
                 2,
-                "SOGAY",
-                "DIMENSIONES:  30 x 45 cm.\n" +
-                        "TÉCNICA: Larga exposiciòn\n " +
-                        "AÑO: 2023",
                 "https://ccunsa.org.pe/wp-content/uploads/2024/04/85.jpg",
-                "expo"
+                "SOGAY",
+                1,
+                1,
+                1,
+                "2024-05-12",
+                "Fotografia",
+                "Larga exposiciòn",
+                "DIMENSIONES:  30 x 45 cm.\n"
         ));
-        listaCuadros.add(new Cuadro(
-                3,
+        listaObrasDeArte.add(new ObraDeArte(
+                2,
+                "https://ccunsa.org.pe/wp-content/uploads/2024/04/85.jpg",
                 "POCSI",
-                "DIMENSIONES: 30 x 45 cm.\n" +
-                        "TÉCNICA: Pintura de luz, y larga exposición\n" +
-                        "AÑO: 2022",
-                "https://ccunsa.org.pe/wp-content/uploads/2024/04/91.jpg",
-                "expo"
+                1,
+                1,
+                1,
+                "2024-05-14",
+                "Fotografia",
+                "Pintura de luz, y larga exposición",
+                "DIMENSIONES: 30 x 45 cm.\n"
         ));
 
-        Log.d("SharedViewModel", "Lista de cuadros inicializada con " + listaCuadros.size() + " elementos.");
+        Log.d("SharedViewModel", "Lista de cuadros inicializada con " + listaObrasDeArte.size() + " elementos.");
 
-        cuadrosLiveData.setValue(listaCuadros);
+        cuadrosLiveData.setValue(listaObrasDeArte);
     }
 }
+

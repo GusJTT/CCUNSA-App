@@ -15,17 +15,15 @@ import android.view.ViewGroup;
 
 import com.example.ccunsa_java.adaptadores.AdaptadorCuadro;
 import com.example.ccunsa_java.adaptadores.Cuadro;
+import com.example.ccunsa_java.adaptadores.OnCuadroClickListener;
 import com.example.ccunsa_java.modelos.CuadrosViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ListaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListaFragment extends Fragment implements OnCuadroClickListener{
+public class ListaFragment extends Fragment implements OnCuadroClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

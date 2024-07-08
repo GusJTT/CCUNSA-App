@@ -3,43 +3,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="2dp"
-    app:cardCornerRadius="8dp">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:background="@drawable/cardview_cuadrado">
 
-        <ImageView
-            android:id="@+id/imgFotoObra"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/txtTituloObra"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/imgFotoObra"
-            app:layout_constraintTop_toTopOf="@+id/imgFotoObra" />
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/txtDescripcionObra"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:text="asdddddddddddddddddddddddddddddddddddddddddddddasdasdasdsadasdsadddd"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/txtTituloObra"
-            app:layout_constraintTop_toBottomOf="@+id/txtTituloObra" />
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/border_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:paddingRight="2dp"
+                    android:id="@+id/imgFotoObra"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtTituloObra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/frameLayout"
+                app:layout_constraintTop_toTopOf="@+id/frameLayout" />
+
+            <TextView
+                android:id="@+id/txtDescripcionObra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:text="asdddddddddddddddddddddddddddddddddddddddddddddasdasdasdsadasdsadddd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtTituloObra"
+                app:layout_constraintTop_toBottomOf="@+id/txtTituloObra" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
 </androidx.cardview.widget.CardView>

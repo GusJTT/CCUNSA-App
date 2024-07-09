@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imgFotoExpo"
+            android:id="@+id/imgDetFotoObra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
         <TextView
-            android:id="@+id/txtTituloExpo"
+            android:id="@+id/txtTituloObra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -52,7 +52,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgFotoExpo" />
+            app:layout_constraintTop_toBottomOf="@+id/imgDetFotoObra" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -62,8 +62,8 @@
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/txtTituloExpo"
-            app:layout_constraintTop_toBottomOf="@+id/txtTituloExpo">
+            app:layout_constraintStart_toStartOf="@+id/txtTituloObra"
+            app:layout_constraintTop_toBottomOf="@+id/txtTituloObra">
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -73,7 +73,7 @@
                 android:src="@drawable/pin_24" />
 
             <TextView
-                android:id="@+id/txtGalerias"
+                android:id="@+id/txtGaleriaObra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Galerias" />
@@ -98,7 +98,7 @@
                 android:src="@drawable/calendar_24" />
 
             <TextView
-                android:id="@+id/txtFechaExpo"
+                android:id="@+id/txtFechaObra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de expo" />
@@ -118,7 +118,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
         <TextView
-            android:id="@+id/txtDescripcionExpo"
+            android:id="@+id/txtDetDescripcionObra"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -138,7 +138,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtDescripcionExpo" />
+            app:layout_constraintTop_toBottomOf="@+id/txtDetDescripcionObra" />
 
         <TextView
             android:id="@+id/textView5"
@@ -153,9 +153,11 @@
             app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
         <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

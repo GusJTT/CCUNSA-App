@@ -66,21 +66,21 @@ public class DetalleCuadroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detalle_obra, container, false);
-        TextView txtDetalleTitulo = view.findViewById(R.id.txtDetalleTitulo);
-        ImageView imgDetalleFoto = view.findViewById(R.id.imgDetalleFoto);
-        TextView txtDetalleDescripcion = view.findViewById(R.id.txtDetalleDescripcion);
+        TextView txtTituloObra = view.findViewById(R.id.txtTituloObra);
+        ImageView imgDetFotoObra = view.findViewById(R.id.imgDetFotoObra);
+        TextView txtDetDescripcionObra = view.findViewById(R.id.txtDetDescripcionObra);
 
         obrasModel = new ViewModelProvider(requireActivity()).get(ObrasViewModel.class);
 
         // Observar el cuadro seleccionado y actualizar la UI
         obrasModel.getObraSeleccionada().observe(getViewLifecycleOwner(), obra -> {
             if (obra != null) {
-                txtDetalleTitulo.setText(obra.getTitulo());
+                txtTituloObra.setText(obra.getTitulo());
                 Glide.with(getContext())
                         .load(obra.getUrlImagen())
                         .centerCrop()
-                        .into(imgDetalleFoto);
-                txtDetalleDescripcion.setText(obra.getDescripcion());
+                        .into(imgDetFotoObra);
+                txtDetDescripcionObra.setText(obra.getDescripcion());
             }
         });
         return view;

@@ -73,7 +73,7 @@ public class ListaFragment extends Fragment implements OnObraClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
         obrasModel = new ViewModelProvider(requireActivity()).get(ObrasViewModel.class);
-        recyclerListaObras = view.findViewById(R.id.recyclerListaObras);
+        recyclerListaObras = view.findViewById(R.id.recyclerListaObras2);
         recyclerListaObras.setLayoutManager(new LinearLayoutManager(getContext()));
 
         adaptadorObras = new AdaptadorObras(obrasModel.getObrasLiveData().getValue(),getContext(),this);

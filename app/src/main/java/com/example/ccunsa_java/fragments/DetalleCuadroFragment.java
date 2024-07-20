@@ -1,8 +1,9 @@
-package com.example.ccunsa_java;
+package com.example.ccunsa_java.fragments;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ccunsa_java.R;
 import com.example.ccunsa_java.modelos.ObrasViewModel;
 
 /**
@@ -21,8 +23,6 @@ import com.example.ccunsa_java.modelos.ObrasViewModel;
  */
 public class DetalleCuadroFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -65,6 +65,7 @@ public class DetalleCuadroFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_detalle_obra, container, false);
         TextView txtTituloObra = view.findViewById(R.id.txtTituloResultado);
         ImageView imgDetFotoObra = view.findViewById(R.id.imgDetGenericoFoto);

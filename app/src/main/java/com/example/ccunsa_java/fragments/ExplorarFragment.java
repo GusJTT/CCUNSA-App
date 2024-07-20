@@ -1,10 +1,9 @@
-package com.example.ccunsa_java;
+package com.example.ccunsa_java.fragments;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -12,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ccunsa_java.R;
 import com.example.ccunsa_java.adaptadores.AdaptadorResultados;
 import com.example.ccunsa_java.adaptadores.OnResultadoClickListener;
 import com.example.ccunsa_java.modelos.ResultadosViewModel;

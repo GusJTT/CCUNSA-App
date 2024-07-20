@@ -72,9 +72,9 @@ public class AdaptadorObras extends RecyclerView.Adapter<AdaptadorObras.ViewHold
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
-            imgFotoObra = itemView.findViewById(R.id.imgFotoObra);
-            txtTituloObra = itemView.findViewById(R.id.txtTituloObra);
-            txtDescripcionObra = itemView.findViewById(R.id.txtDetDescripcionObra);
+            imgFotoObra = itemView.findViewById(R.id.imgFotoResultado);
+            txtTituloObra = itemView.findViewById(R.id.txtTituloResultado);
+            txtDescripcionObra = itemView.findViewById(R.id.txtDetExpocisionDescripcion);
         }
     }
 }

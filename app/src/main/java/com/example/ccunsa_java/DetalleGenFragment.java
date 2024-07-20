@@ -3,23 +3,17 @@ package com.example.ccunsa_java;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.example.ccunsa_java.modelos.ObrasViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DetalleCuadroFragment#newInstance} factory method to
+ * Use the {@link DetalleGenFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetalleCuadroFragment extends Fragment {
+public class DetalleGenFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,9 +23,8 @@ public class DetalleCuadroFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ObrasViewModel obrasModel;
 
-    public DetalleCuadroFragment() {
+    public DetalleGenFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +34,11 @@ public class DetalleCuadroFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DetalleCuadroFragment.
+     * @return A new instance of fragment DetalleGenFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetalleCuadroFragment newInstance(String param1, String param2) {
-        DetalleCuadroFragment fragment = new DetalleCuadroFragment();
+    public static DetalleGenFragment newInstance(String param1, String param2) {
+        DetalleGenFragment fragment = new DetalleGenFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,24 +58,7 @@ public class DetalleCuadroFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detalle_obra, container, false);
-        TextView txtTituloObra = view.findViewById(R.id.txtTituloResultado);
-        ImageView imgDetFotoObra = view.findViewById(R.id.imgDetGenericoFoto);
-        TextView txtDetDescripcionObra = view.findViewById(R.id.txtDetExpocisionDescripcion);
-
-        obrasModel = new ViewModelProvider(requireActivity()).get(ObrasViewModel.class);
-
-        // Observar el cuadro seleccionado y actualizar la UI
-        obrasModel.getObraSeleccionada().observe(getViewLifecycleOwner(), obra -> {
-            if (obra != null) {
-                txtTituloObra.setText(obra.getTitulo());
-                Glide.with(getContext())
-                        .load(obra.getUrlImagen())
-                        .centerCrop()
-                        .into(imgDetFotoObra);
-                txtDetDescripcionObra.setText(obra.getDescripcion());
-            }
-        });
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_detalle_gen, container, false);
     }
 }

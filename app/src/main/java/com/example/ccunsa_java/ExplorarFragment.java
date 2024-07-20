@@ -1,42 +1,37 @@
 package com.example.ccunsa_java;
-
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ExplorarFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ExplorarFragment extends Fragment {
+import com.example.ccunsa_java.adaptadores.AdaptadorResultados;
+import com.example.ccunsa_java.adaptadores.OnResultadoClickListener;
+import com.example.ccunsa_java.modelos.ResultadosViewModel;
+import com.example.ccunsa_java.objetos.ResultadoFiltro;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class ExplorarFragment extends Fragment implements OnResultadoClickListener {
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerListaResultados;
+    private ResultadosViewModel resultadosModel;
+    private AdaptadorResultados adaptadorResultados;
 
     public ExplorarFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ExplorarFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ExplorarFragment newInstance(String param1, String param2) {
         ExplorarFragment fragment = new ExplorarFragment();
         Bundle args = new Bundle();
@@ -59,6 +54,24 @@ public class ExplorarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explorar, container, false);
+        View view = inflater.inflate(R.layout.fragment_explorar, container, false);
+        resultadosModel = new ViewModelProvider(requireActivity()).get(ResultadosViewModel.class);
+        recyclerListaResultados = view.findViewById(R.id.recyclerFiltros);
+        recyclerListaResultados.setLayoutManager(new GridLayoutManager(getContext(),3));
+
+        adaptadorResultados = new AdaptadorResultados(resultadosModel.getResultadosLiveData().getValue(),getContext(),this);
+        recyclerListaResultados.setAdapter(adaptadorResultados);
+        Log.d("AdaptadorResultado", "Adaptador configurado y asignado al RecyclerView.");
+        return view;
+    }
+    @Override
+    public void onResultadoClick(ResultadoFiltro resultado) {
+        resultadosModel.setResultadoSeleccionado(resultado);
+        //Cargar fragment detalle
+        FragmentManager fragmentManager = getParentFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView2, ExposicionFragment.class, null)
+                .addToBackStack(null)
+                .commit();
     }
 }

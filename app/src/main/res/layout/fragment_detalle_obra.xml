@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/icono_atras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imgDetFotoObra"
+            android:id="@+id/imgDetGenericoFoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -28,7 +28,7 @@
             android:src="@drawable/noche_estrellada_van_gogh"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/icono_atras" />
 
         <View
             android:id="@+id/divider2"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
         <TextView
-            android:id="@+id/txtTituloObra"
+            android:id="@+id/txtTituloResultado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -52,21 +52,46 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgDetFotoObra" />
+            app:layout_constraintTop_toBottomOf="@+id/imgDetGenericoFoto" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/txtTituloObra"
-            app:layout_constraintTop_toBottomOf="@+id/txtTituloObra">
+            app:layout_constraintStart_toStartOf="@+id/txtTituloResultado"
+            app:layout_constraintTop_toBottomOf="@+id/txtTituloResultado">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/user_24" />
+
+            <TextView
+                android:id="@+id/txtAutorObra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Autor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout1"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+
+            <ImageView
+                android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
@@ -84,11 +109,11 @@
             android:id="@+id/linearLayout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
             <ImageView
                 android:id="@+id/icono_cal"
@@ -101,7 +126,7 @@
                 android:id="@+id/txtFechaObra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fecha de expo" />
+                android:text="Fecha de obra" />
 
         </LinearLayout>
 
@@ -118,7 +143,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
         <TextView
-            android:id="@+id/txtDetDescripcionObra"
+            android:id="@+id/txtDetExpocisionDescripcion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -129,14 +154,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <android.widget.Button
-            android:id="@+id/button"
+            android:id="@+id/btnEscuchar"
             android:layout_width="wrap_content"
             android:layout_height="33dp"
             android:background="@drawable/boton_cuadrado"
             android:drawableStart="@drawable/play_24"
             android:padding="6dp"
             android:text="Escuchar"
-            app:layout_constraintBottom_toTopOf="@+id/txtDetDescripcionObra"
+            app:layout_constraintBottom_toTopOf="@+id/txtDetExpocisionDescripcion"
             app:layout_constraintEnd_toEndOf="@+id/divider2"
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 

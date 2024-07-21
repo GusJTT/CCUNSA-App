@@ -10,12 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.ccunsa_java.R;
 import com.example.ccunsa_java.adaptadores.AdaptadorResultados;
 import com.example.ccunsa_java.adaptadores.OnResultadoClickListener;
 import com.example.ccunsa_java.modelos.ResultadosViewModel;
 import com.example.ccunsa_java.objetos.ResultadoFiltro;
+
+import java.util.List;
 
 public class ExplorarFragment extends Fragment implements OnResultadoClickListener {
 
@@ -27,6 +30,11 @@ public class ExplorarFragment extends Fragment implements OnResultadoClickListen
     private RecyclerView recyclerListaResultados;
     private ResultadosViewModel resultadosModel;
     private AdaptadorResultados adaptadorResultados;
+    private List<ResultadoFiltro> resultados;
+    private Button btnFiltroAutor;
+    private Button btnFiltroTipo;
+    private Button btnFiltroExpo;
+    private Button btnFiltroGaleria;
 
     public ExplorarFragment() {
         // Required empty public constructor
@@ -55,13 +63,47 @@ public class ExplorarFragment extends Fragment implements OnResultadoClickListen
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_explorar, container, false);
+        btnFiltroAutor = view.findViewById(R.id.btnFiltroAutor);
+        btnFiltroTipo = view.findViewById(R.id.btnFiltroTipo);
+        btnFiltroExpo = view.findViewById(R.id.btnFiltroExpo);
+        btnFiltroGaleria = view.findViewById(R.id.btnFiltroGaleria);
+
+        //Cargando el LiveModel de resultados
         resultadosModel = new ViewModelProvider(requireActivity()).get(ResultadosViewModel.class);
         recyclerListaResultados = view.findViewById(R.id.recyclerFiltros);
         recyclerListaResultados.setLayoutManager(new GridLayoutManager(getContext(),3));
 
-        adaptadorResultados = new AdaptadorResultados(resultadosModel.getResultadosLiveData().getValue(),getContext(),this);
+        //Cargando datos de resultados del viewmodel al adaptador
+        resultados = resultadosModel.getResultadosLiveData().getValue();
+        adaptadorResultados = new AdaptadorResultados(resultados,getContext(),this);
         recyclerListaResultados.setAdapter(adaptadorResultados);
         Log.d("AdaptadorResultado", "Adaptador configurado y asignado al RecyclerView.");
+
+        //Asignando listeners para los botones de filtro
+        btnFiltroAutor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filtrarPorAutor();
+            }
+        });
+        btnFiltroTipo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filtrarPorTipo();
+            }
+        });
+        btnFiltroExpo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filtrarPorExposicion();
+            }
+        });
+        btnFiltroGaleria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filtrarPorGaleria();
+            }
+        });
         return view;
     }
     @Override
@@ -73,5 +115,27 @@ public class ExplorarFragment extends Fragment implements OnResultadoClickListen
                 .replace(R.id.fragmentContainerView2, ExposicionFragment.class, null)
                 .addToBackStack(null)
                 .commit();
+    }
+    private void filtrarPorAutor(){
+        //Se va a ejecutar una consulta SQL y actualizar el RecyclerView
+        resultadosModel.cargarConsultaPorAutores();
+        actualizarDatos();
+    }
+    private void filtrarPorTipo(){
+        resultadosModel.cargarConsultaPorTipo();
+        actualizarDatos();
+    }
+    private void filtrarPorExposicion(){
+        resultadosModel.cargarConsultaPorExposiciones();
+        actualizarDatos();
+    }
+    private void filtrarPorGaleria(){
+        resultadosModel.cargarConsultaPorGalerias();
+        actualizarDatos();
+    }
+    private void actualizarDatos(){
+        resultados.clear();
+        resultados.addAll(resultadosModel.getResultadosLiveData().getValue());
+        adaptadorResultados.notifyDataSetChanged();
     }
 }

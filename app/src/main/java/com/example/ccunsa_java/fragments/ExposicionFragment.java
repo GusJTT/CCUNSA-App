@@ -17,7 +17,9 @@ import com.example.ccunsa_java.R;
 import com.example.ccunsa_java.adaptadores.AdaptadorObras;
 import com.example.ccunsa_java.adaptadores.OnObraClickListener;
 import com.example.ccunsa_java.modelos.ObrasViewModel;
+import com.example.ccunsa_java.modelos.ResultadosViewModel;
 import com.example.ccunsa_java.objetos.ObraDeArte;
+import com.example.ccunsa_java.objetos.ResultadoFiltro;
 
 public class ExposicionFragment extends Fragment implements OnObraClickListener {
 
@@ -26,8 +28,9 @@ public class ExposicionFragment extends Fragment implements OnObraClickListener 
     private RecyclerView recyclerListaObras;
     private AdaptadorObras adaptadorObras;
     private ObrasViewModel obrasModel;
+    private ResultadosViewModel resultadosModel;
+    private ResultadoFiltro resultadoSeleccionado;
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -58,7 +61,10 @@ public class ExposicionFragment extends Fragment implements OnObraClickListener 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_exposicion, container, false);
+        resultadosModel = new ViewModelProvider(requireActivity()).get(ResultadosViewModel.class);
         obrasModel = new ViewModelProvider(requireActivity()).get(ObrasViewModel.class);
+
+        resultadoSeleccionado = resultadosModel.getResultadoSeleccionado().getValue();
         recyclerListaObras = view.findViewById(R.id.recyclerFiltros);
         recyclerListaObras.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -73,7 +79,7 @@ public class ExposicionFragment extends Fragment implements OnObraClickListener 
         //Cargar fragment detalle
         FragmentManager fragmentManager = getParentFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView2, DetalleCuadroFragment.class, null)
+                .replace(R.id.fragmentContainerView2, DetalleObraFragment.class, null)
                 .addToBackStack(null)
                 .commit();
     }

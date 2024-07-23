@@ -1,12 +1,14 @@
 package com.example.ccunsa_java.objetos;
 
 public class ResultadoFiltro {
+    private int id;
     private String urlImagen;
     private String nombre;
 
-    public ResultadoFiltro(String urlImagen, String nombre) {
+    public ResultadoFiltro(int id, String urlImagen, String nombre) {
         this.urlImagen = urlImagen;
         this.nombre = nombre;
+        this.id = id;
     }
 
     public String getUrlImagen() {
@@ -23,5 +25,13 @@ public class ResultadoFiltro {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

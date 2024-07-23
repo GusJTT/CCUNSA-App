@@ -31,28 +31,13 @@ public class ResultadosViewModel extends ViewModel {
         resultadoSeleccionado.setValue(resultado);
     }
 
-    public void setResultadoSeleccionadoporNombre(String nombre) {
-        ResultadoFiltro resultado = getResultadoPorNombre(nombre);
-        resultadoSeleccionado.setValue(resultado);
-    }
-
-    private ResultadoFiltro getResultadoPorNombre(String nombre) {
-        if (resultados != null) {
-            for (ResultadoFiltro resultado : resultados) {
-                if (resultado.getNombre().equals(nombre)) {
-                    return resultado;
-                }
-            }
-        }
-        return null;
-    }
     private void cargarResultados(){
         //SQL
         resultados = new ArrayList<>();
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/9-1.jpg","Silencios revelados"));
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
+        resultados.add(new ResultadoFiltro(1, "https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
+        resultados.add(new ResultadoFiltro(2, "https://ccunsa.org.pe/wp-content/uploads/2024/06/9-1.jpg","Silencios revelados"));
+        resultados.add(new ResultadoFiltro(3, "https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
+        resultados.add(new ResultadoFiltro(4, "https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
         Log.d("SharedViewModel", "Lista de resultados inicializada con " + resultados.size() + " elementos.");
 
         resultadosLiveData.setValue(resultados);
@@ -66,11 +51,11 @@ public class ResultadosViewModel extends ViewModel {
         Deberia retornar una Lista con objetos ResultadoFiltro
         */
         resultados = new ArrayList<>();
-        resultados.add(new ResultadoFiltro("https://bptfotografia.com/wp-content/uploads/2021/08/foto-de-retrato-tipos.jpg","Juan Perez"));
-        resultados.add(new ResultadoFiltro("https://img.freepik.com/foto-gratis/joven-barbudo-camisa_273609-5938.jpg?w=740&t=st=1721539590~exp=1721540190~hmac=f97868024806588bab30929224ef3a5ba87568eda000c14cb54bf6ec56335a20","Jose Castro"));
-        resultados.add(new ResultadoFiltro("https://previews.123rf.com/images/rawpixel/rawpixel1704/rawpixel170441704/76561515-retrato-de-personas-estudio-disparar-con-expresi%C3%B3n-de-cara-sonriente.jpg","Maria Juana"));
-        resultados.add(new ResultadoFiltro("https://pixnio.com/free-images/2017/11/30/2017-11-30-18-37-25-576x864.jpg","Lucia Flores"));
-        resultados.add(new ResultadoFiltro("https://pixnio.com/free-images/2017/11/30/2017-11-30-18-37-25-576x864.jpg","Lucia Flores"));
+        resultados.add(new ResultadoFiltro(1, "https://bptfotografia.com/wp-content/uploads/2021/08/foto-de-retrato-tipos.jpg","Juan Perez"));
+        resultados.add(new ResultadoFiltro(2, "https://img.freepik.com/foto-gratis/joven-barbudo-camisa_273609-5938.jpg?w=740&t=st=1721539590~exp=1721540190~hmac=f97868024806588bab30929224ef3a5ba87568eda000c14cb54bf6ec56335a20","Jose Castro"));
+        resultados.add(new ResultadoFiltro(3, "https://previews.123rf.com/images/rawpixel/rawpixel1704/rawpixel170441704/76561515-retrato-de-personas-estudio-disparar-con-expresi%C3%B3n-de-cara-sonriente.jpg","Maria Juana"));
+        resultados.add(new ResultadoFiltro(4, "https://pixnio.com/free-images/2017/11/30/2017-11-30-18-37-25-576x864.jpg","Lucia Flores"));
+        resultados.add(new ResultadoFiltro(5, "https://pixnio.com/free-images/2017/11/30/2017-11-30-18-37-25-576x864.jpg","Lucia Flores"));
         Log.d("SharedViewModel", "Lista de autores de " + resultados.size() + " elementos.");
 
         resultadosLiveData.setValue(resultados);
@@ -83,10 +68,10 @@ public class ResultadosViewModel extends ViewModel {
         Deberia retornar una Lista con objetos ResultadoFiltro
         */
         resultados = new ArrayList<>();
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/9-1.jpg","Silencios revelados"));
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
-        resultados.add(new ResultadoFiltro("https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
+        resultados.add(new ResultadoFiltro(1, "https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
+        resultados.add(new ResultadoFiltro(2, "https://ccunsa.org.pe/wp-content/uploads/2024/06/9-1.jpg","Silencios revelados"));
+        resultados.add(new ResultadoFiltro(3, "https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
+        resultados.add(new ResultadoFiltro(4, "https://ccunsa.org.pe/wp-content/uploads/2024/06/167.jpg","La otra ciudad"));
         Log.d("SharedViewModel", "Lista de exposiciones de " + resultados.size() + " elementos.");
         resultadosLiveData.setValue(resultados);
     }

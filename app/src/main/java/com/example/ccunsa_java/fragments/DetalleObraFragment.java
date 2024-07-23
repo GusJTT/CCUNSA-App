@@ -3,7 +3,6 @@ package com.example.ccunsa_java.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -18,10 +17,10 @@ import com.example.ccunsa_java.modelos.ObrasViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DetalleCuadroFragment#newInstance} factory method to
+ * Use the {@link DetalleObraFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetalleCuadroFragment extends Fragment {
+public class DetalleObraFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -31,7 +30,7 @@ public class DetalleCuadroFragment extends Fragment {
     private String mParam2;
     private ObrasViewModel obrasModel;
 
-    public DetalleCuadroFragment() {
+    public DetalleObraFragment() {
         // Required empty public constructor
     }
 
@@ -41,11 +40,11 @@ public class DetalleCuadroFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DetalleCuadroFragment.
+     * @return A new instance of fragment DetalleObraFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetalleCuadroFragment newInstance(String param1, String param2) {
-        DetalleCuadroFragment fragment = new DetalleCuadroFragment();
+    public static DetalleObraFragment newInstance(String param1, String param2) {
+        DetalleObraFragment fragment = new DetalleObraFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

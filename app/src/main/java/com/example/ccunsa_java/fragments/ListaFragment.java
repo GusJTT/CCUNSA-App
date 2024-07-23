@@ -88,7 +88,7 @@ public class ListaFragment extends Fragment implements OnObraClickListener {
         //Cargar fragment detalle
         FragmentManager fragmentManager = getParentFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView2, DetalleCuadroFragment.class, null)
+                .replace(R.id.fragmentContainerView2, DetalleObraFragment.class, null)
                 .addToBackStack(null)
                 .commit();
     }

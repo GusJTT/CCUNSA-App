@@ -14,8 +14,6 @@ public class ResultadosViewModel extends ViewModel {
     private MutableLiveData<List<ResultadoFiltro>> resultadosLiveData;
     private MutableLiveData<ResultadoFiltro> resultadoSeleccionado;
     private List<ResultadoFiltro> resultados;
-    //Variable de prueba
-    private List<ResultadoFiltro> resultados2;
     public ResultadosViewModel(){
         resultadosLiveData = new MutableLiveData<>();
         resultadoSeleccionado = new MutableLiveData<>();

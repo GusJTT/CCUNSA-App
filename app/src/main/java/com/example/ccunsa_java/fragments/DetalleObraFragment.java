@@ -66,9 +66,9 @@ public class DetalleObraFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_detalle_obra, container, false);
-        TextView txtTituloObra = view.findViewById(R.id.txtTituloResultado);
-        ImageView imgDetFotoObra = view.findViewById(R.id.imgDetGenericoFoto);
-        TextView txtDetDescripcionObra = view.findViewById(R.id.txtDetExpocisionDescripcion);
+        TextView txtTituloObra = view.findViewById(R.id.txtTituloExposicion);
+        ImageView imgDetFotoObra = view.findViewById(R.id.imgFotoExposicion);
+        TextView txtDetDescripcionObra = view.findViewById(R.id.txtDescripcionExpocision);
 
         obrasModel = new ViewModelProvider(requireActivity()).get(ObrasViewModel.class);
 

@@ -63,7 +63,7 @@ public class AdaptadorResultados extends RecyclerView.Adapter<AdaptadorResultado
         public ViewHolder(@NonNull View itemVIew){
             super(itemVIew);
             imgFotoResultado = itemVIew.findViewById(R.id.imgFotoResultado);
-            txtTituloResultado = itemVIew.findViewById(R.id.txtTituloResultado);
+            txtTituloResultado = itemVIew.findViewById(R.id.txtTituloExposicion);
         }
     }
 }

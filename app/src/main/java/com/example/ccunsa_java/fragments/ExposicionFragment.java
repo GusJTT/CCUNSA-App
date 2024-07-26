@@ -12,12 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.ccunsa_java.R;
 import com.example.ccunsa_java.adaptadores.AdaptadorObras;
 import com.example.ccunsa_java.adaptadores.OnObraClickListener;
 import com.example.ccunsa_java.modelos.ObrasViewModel;
 import com.example.ccunsa_java.modelos.ResultadosViewModel;
+import com.example.ccunsa_java.objetos.Exposicion;
 import com.example.ccunsa_java.objetos.ObraDeArte;
 import com.example.ccunsa_java.objetos.ResultadoFiltro;
 
@@ -61,8 +65,28 @@ public class ExposicionFragment extends Fragment implements OnObraClickListener 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_exposicion, container, false);
+        TextView txtTituloExposicion = view.findViewById(R.id.txtTituloExposicion);
+        TextView txtFechaExposicion = view.findViewById(R.id.txtFechaExposicion);
+        TextView txtDescripcionExpocision = view.findViewById(R.id.txtDescripcionExpocision);
+        ImageView imgFotoExposicion = view.findViewById(R.id.imgFotoExposicion);
+
         resultadosModel = new ViewModelProvider(requireActivity()).get(ResultadosViewModel.class);
         obrasModel = new ViewModelProvider(requireActivity()).get(ObrasViewModel.class);
+
+        // Observar el resultado seleccionado y actualizar la UI
+        resultadosModel.getResultadoSeleccionado().observe(getViewLifecycleOwner(), resultado -> {
+            Exposicion expoObtenida = consultaExposicion(resultadosModel.getResultadoSeleccionado().getValue());
+            if (resultado != null) {
+                txtTituloExposicion.setText(expoObtenida.getNombre());
+                Glide.with(getContext())
+                        .load(expoObtenida.getUrlImagen())
+                        .centerCrop()
+                        .into(imgFotoExposicion);
+                txtFechaExposicion.setText(expoObtenida.getFecha());
+                txtDescripcionExpocision.setText(expoObtenida.getDescripcion());
+            }
+        });
+
 
         resultadoSeleccionado = resultadosModel.getResultadoSeleccionado().getValue();
         recyclerListaObras = view.findViewById(R.id.recyclerFiltros);
@@ -83,4 +107,14 @@ public class ExposicionFragment extends Fragment implements OnObraClickListener 
                 .addToBackStack(null)
                 .commit();
     }
+
+    public Exposicion consultaExposicion(ResultadoFiltro resultado){
+        Exposicion expoConsultada;
+        //Se obtiene todos los datos de la exposicion desde base de datos
+        //SELECT * FROM Exposicion WHERE id= resultado.getId()
+        //Se guarda en una variable y se retorna
+        //return expoConsultada;
+        return new Exposicion();
+    }
+
 }

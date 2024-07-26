@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imgDetGenericoFoto"
+            android:id="@+id/imgFotoExposicion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
         <TextView
-            android:id="@+id/txtTituloResultado"
+            android:id="@+id/txtTituloExposicion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -52,7 +52,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgDetGenericoFoto" />
+            app:layout_constraintTop_toBottomOf="@+id/imgFotoExposicion" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -62,8 +62,8 @@
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/txtTituloResultado"
-            app:layout_constraintTop_toBottomOf="@+id/txtTituloResultado">
+            app:layout_constraintStart_toStartOf="@+id/txtTituloExposicion"
+            app:layout_constraintTop_toBottomOf="@+id/txtTituloExposicion">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -73,7 +73,7 @@
                 android:src="@drawable/user_24" />
 
             <TextView
-                android:id="@+id/txtAutorObra"
+                android:id="@+id/txtGaleriasExposicion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Autor" />
@@ -123,7 +123,7 @@
                 android:src="@drawable/calendar_24" />
 
             <TextView
-                android:id="@+id/txtFechaObra"
+                android:id="@+id/txtFechaExposicion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha de obra" />
@@ -143,7 +143,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
         <TextView
-            android:id="@+id/txtDetExpocisionDescripcion"
+            android:id="@+id/txtDescripcionExpocision"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -161,7 +161,7 @@
             android:drawableStart="@drawable/play_24"
             android:padding="6dp"
             android:text="Escuchar"
-            app:layout_constraintBottom_toTopOf="@+id/txtDetExpocisionDescripcion"
+            app:layout_constraintBottom_toTopOf="@+id/txtDescripcionExpocision"
             app:layout_constraintEnd_toEndOf="@+id/divider2"
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
